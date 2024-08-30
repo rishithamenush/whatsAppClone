@@ -25,33 +25,63 @@ class _OtpPageState extends State<OtpPage> {
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
         child:  Column(
           children: [
-            const SizedBox(
-              height: 40,
-            ),
-            const Center(
-              child: Text(
-                "Verify your OTP",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: tabColor
-                ),
+            Expanded(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Center(
+                    child: Text(
+                      "Verify your OTP",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: tabColor
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Enter your OTP for the WhatsApp Clone Verification",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  _pinCodeWidget(),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ],
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              "Enter your OTP for the WhatsApp Clone Verification",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            _pinCodeWidget(),
-            const SizedBox(
-              height: 30,
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 20),
+                width: 120,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: tabColor,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Next",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ),
+              ),
             )
           ],
         ),
