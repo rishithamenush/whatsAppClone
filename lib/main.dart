@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           color: appBarColor
         ),
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
