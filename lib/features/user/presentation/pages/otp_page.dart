@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 
 class OtpPage extends StatefulWidget {
@@ -10,17 +11,24 @@ class OtpPage extends StatefulWidget {
 }
 
 class _OtpPageState extends State<OtpPage> {
+  final TextEditingController _otpController = TextEditingController();
+
+  @override
+  void dispose() {
+    _otpController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
-        child: const Column(
+        child:  Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Verify your OTP",
                 style: TextStyle(
@@ -30,24 +38,47 @@ class _OtpPageState extends State<OtpPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Enter your OTP for the WhatsApp Clone Verification",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 15),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             _pinCodeWidget(),
-            SizedBox(
+            const SizedBox(
               height: 30,
             )
-
           ],
         ),
+      ),
+    );
+  }
+  Widget _pinCodeWidget() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 50),
+      child: Column(
+        children: <Widget>[
+          PinCodeTextField(
+            appContext: context,
+            length: 6,
+            controller: _otpController,
+            onChanged: (value) {},
+            pinTheme: PinTheme(
+              activeColor: tabColor,
+              selectedColor: tabColor,
+              inactiveColor: Colors.grey,
+            ),
+            onCompleted: (String pinCode) {
+              // Handle the OTP verification logic here
+            },
+          ),
+          const Text("Enter your 6 digit code"),
+        ],
       ),
     );
   }
