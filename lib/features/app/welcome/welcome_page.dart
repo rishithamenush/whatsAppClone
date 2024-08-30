@@ -1,15 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/features/app/splash/splash_screen.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
-  @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
-
-class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,26 +14,27 @@ class _WelcomePageState extends State<WelcomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Center(child: Text("Welcome to Whatsapp Clone", style: TextStyle(fontSize: 20),),),
+            const Center(child: Text("Welcome to WhatsApp Clone", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: tabColor),),),
             Image.asset("assets/bg_image.png"),
             Column(
               children: [
-                const Text("Read our Privacy Tap, 'Agree and Continue' to accept the Team of Service. "),
+                const Text("Read our Privacy Policy Tap, 'Agree and Continue' to accept the Team of Service.", textAlign: TextAlign.center,style: TextStyle(fontSize: 15),),
                 const SizedBox(height: 30,),
                 GestureDetector(
-                  onTap: (){
-                    child: Container(
-                      width: 200,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: tabColor,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Center(
-                        child: Text("AGREE AND CONTINUE", style: TextStyle(color: Colors.white),),
-                      ),
-                    );
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SplashScreen()));
                   },
+                  child: Container(
+                    width: 200,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: tabColor,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: const Center(
+                      child: Text("AGREE AND CONTINUE", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),),
+                    ),
+                  ),
                 )
               ],
             )

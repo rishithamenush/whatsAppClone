@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(),
-          Image.asset("assets/whats_app_log.png", color: Colors.white, width: 100,height: 100,),
+          Image.asset("assets/whats_app_logo.png", color: Colors.white, width: 100,height: 100,),
           Column(
             children: [
               Text("from", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: greyColor.withOpacity(.6)),),
