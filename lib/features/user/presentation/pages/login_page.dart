@@ -4,6 +4,8 @@ import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:country_pickers/country.dart' as pickers;
 import 'package:country_pickers/country_pickers.dart' as pickers;
 
+import 'otp_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -107,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: (){
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpPage()));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 20),
