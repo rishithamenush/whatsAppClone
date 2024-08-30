@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 
+import '../welcome/welcome_page.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
