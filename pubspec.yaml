@@ -62,6 +62,7 @@ dependencies:
   audioplayers: ^6.1.0
   just_audio: ^0.9.40
   story_view: ^0.16.5
+  country_pickers: ^3.0.1
 
 dev_dependencies:
   flutter_test:

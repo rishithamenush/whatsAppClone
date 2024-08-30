@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/app/splash/splash_screen.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 
+import '../../user/presentation/pages/login_page.dart';
+
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
@@ -22,7 +24,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 30,),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SplashScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
                   },
                   child: Container(
                     width: 200,
