@@ -54,6 +54,14 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
               ),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Please Provide your name and an optional profile \nphoto",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15),
+            ),
             const SizedBox(height: 30),
             GestureDetector(
               onTap: selectImage,
