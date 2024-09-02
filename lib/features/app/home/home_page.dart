@@ -13,6 +13,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   TabController? _tabController;
    int _currentTabIndex = 0;
 
+   final List<Widget> _page = [
+     const Center(child: Text("Chats"),),
+     const Center(child: Text("Updates"),),
+     const Center(child: Text("Communities"),),
+     const Center(child: Text("Calls"),),
+   ];
+
    @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
@@ -28,6 +35,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           "WhatsApp",
           style: TextStyle(
@@ -53,44 +61,63 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
               Icon(Icons.more_vert, color: textColor,size: 28,)
             ],
-          )
+          ),
         ],
-        bottom:  TabBar(
-          controller: _tabController,
-          indicatorColor: tabColor,
-          labelColor: textColor,
-          unselectedLabelColor: greyColor,
-          tabs: const [
-            Tab(
-              child: Text(
-                "Chats",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600
-                ),
-              ),
-            ),
-            Tab(
-              child: Text(
-                "Status",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600
-                ),
-              ),
-            ),
-            Tab(
-              child: Text(
-                "Calls",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600
-                ),
-              ),
-            )
-          ],
-        ),
       ),
+      body: _page[_currentTabIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentTabIndex,
+        onTap: (index) {
+          setState(() {
+            _currentTabIndex = index;
+          });
+        },
+        selectedItemColor: tabColor,
+        unselectedItemColor: textColor,
+        items: [
+          BottomNavigationBarItem(
+            icon: _buildIconWithShadow(
+              icon: Icons.chat,
+              isSelected: _currentTabIndex == 0,
+            ),
+            label: "Chats",
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIconWithShadow(
+              icon: Icons.camera_alt_outlined,
+              isSelected: _currentTabIndex == 1,
+            ),
+            label: "Status",
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIconWithShadow(
+              icon: Icons.groups,
+              isSelected: _currentTabIndex == 2,
+            ),
+            label: "Communities",
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIconWithShadow(
+              icon: Icons.call,
+              isSelected: _currentTabIndex == 3,
+            ),
+            label: "Calls",
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildIconWithShadow({required IconData icon, required bool isSelected}) {
+    return Container(
+      decoration: isSelected
+          ? BoxDecoration(
+        color: tabColor.withOpacity(0.2),
+        shape: BoxShape.circle,
+      )
+          : null,
+      padding: const EdgeInsets.all(8.0),
+      child: Icon(icon),
     );
   }
 }
