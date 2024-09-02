@@ -9,7 +9,21 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
+  TabController? _tabController;
+   int _currentTabIndex = 0;
+
+   @override
+  void initState() {
+    _tabController = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController?.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +32,7 @@ class _HomePageState extends State<HomePage> {
           "WhatsApp",
           style: TextStyle(
             fontSize: 20,
-            color: greyColor,
+            color: textColor,
             fontWeight: FontWeight.w600
           ),
         ),
@@ -27,20 +41,55 @@ class _HomePageState extends State<HomePage> {
             children: [
               Icon(
                 Icons.camera_alt_outlined,
-                color: greyColor,
+                color: textColor,
                 size: 20,
               ),
               SizedBox(
                 width: 25,
               ),
-              Icon(Icons.search, color: greyColor,size: 28,),
+              Icon(Icons.search, color: textColor,size: 28,),
               SizedBox(
                 width: 10,
               ),
-              Icon(Icons.more_vert, color: greyColor,size: 28,)
+              Icon(Icons.more_vert, color: textColor,size: 28,)
             ],
           )
         ],
+        bottom:  TabBar(
+          controller: _tabController,
+          indicatorColor: tabColor,
+          labelColor: textColor,
+          unselectedLabelColor: greyColor,
+          tabs: const [
+            Tab(
+              child: Text(
+                "Chats",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600
+                ),
+              ),
+            ),
+            Tab(
+              child: Text(
+                "Status",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600
+                ),
+              ),
+            ),
+            Tab(
+              child: Text(
+                "Calls",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
