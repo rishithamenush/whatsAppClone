@@ -44,10 +44,14 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
         child: Column(
           children: [
             const SizedBox(height: 30),
-            Center(
+            const Center(
               child: Text(
                 "Profile Info",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: tabColor
+              ),
               ),
             ),
             const SizedBox(height: 30),
