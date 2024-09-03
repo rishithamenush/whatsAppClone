@@ -17,6 +17,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
    @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
+    _tabController!.addListener((){
+      setState(() {
+        _currentTabIndex = _tabController!.index;
+      });
+    });
+
     super.initState();
   }
 
@@ -93,13 +99,62 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       floatingActionButton: switchFloatingActionButtonOnTabIndex(
         _currentTabIndex,
       ),
+      body: TabBarView(
+        controller: _tabController,
+
+        children: const [
+          Center(child: Text("Chat Page"),),
+          Center(child: Text("Status Page"),),
+          Center(child: Text("Calls Page"),),
+        ],
+      ),
     );
   }
   switchFloatingActionButtonOnTabIndex(int index){
      switch(index){
        case 0:
          {
-
+           return FloatingActionButton(
+             backgroundColor: tabColor,
+             onPressed: (){},
+             child: const Icon(
+               Icons.message,
+               color: Colors.white,
+             ),
+           );
+         }
+       case 1:
+         {
+           return FloatingActionButton(
+             backgroundColor: tabColor,
+             onPressed: (){},
+             child: const Icon(
+               Icons.camera_alt,
+               color: Colors.white,
+             ),
+           );
+         }
+       case 2:
+         {
+           return FloatingActionButton(
+             backgroundColor: tabColor,
+             onPressed: (){},
+             child: const Icon(
+               Icons.add_call,
+               color: Colors.white,
+             ),
+           );
+         }
+       default:
+         {
+           return FloatingActionButton(
+             backgroundColor: tabColor,
+             onPressed: (){},
+             child: const Icon(
+               Icons.add_call,
+               color: Colors.white,
+             ),
+           );
          }
      }
   }

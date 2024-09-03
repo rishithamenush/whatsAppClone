@@ -51,7 +51,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  const Text("WhatsApp Clone will send you SMS message (carrier chargers may apply) to verify your phone number. Enter the country code and phone number",
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Text("WhatsApp Clone will send you SMS message \n (carrier chargers may apply) to verify your phone number. Enter the country code and phone number",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15),
                   ),
@@ -59,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                   ),
                   ListTile(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 2),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 2),
                     onTap: _openFileteredCountryPickerDialog,
                     title: _buildDialogItem(_selectedFilteredDialogCountry),
                   ),
@@ -81,8 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                           _selectedFilteredDialogCountry.phoneCode
                         ),
                       ),
-                      SizedBox(width:
-                        8,),
+                      const SizedBox(width:
+                        12,),
                       Expanded(
                         child: Container(
                           height: 40,
@@ -180,7 +183,9 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           pickers.CountryPickerUtils.getDefaultFlagImage(country),
+          const SizedBox(width: 8),
           Text("+${country.phoneCode}"),
+          const SizedBox(width: 16),
           Expanded(
             child:Text(
               "${country.name}", maxLines: 1, overflow: TextOverflow.ellipsis,
