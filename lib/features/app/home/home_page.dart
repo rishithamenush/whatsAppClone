@@ -64,60 +64,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ],
       ),
-      body: _page[_currentTabIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentTabIndex,
-        onTap: (index) {
-          setState(() {
-            _currentTabIndex = index;
-          });
-        },
-        selectedItemColor: tabColor,
-        unselectedItemColor: textColor,
-        items: [
-          BottomNavigationBarItem(
-            icon: _buildIconWithShadow(
-              icon: Icons.chat,
-              isSelected: _currentTabIndex == 0,
-            ),
-            label: "Chats",
-          ),
-          BottomNavigationBarItem(
-            icon: _buildIconWithShadow(
-              icon: Icons.camera_alt_outlined,
-              isSelected: _currentTabIndex == 1,
-            ),
-            label: "Status",
-          ),
-          BottomNavigationBarItem(
-            icon: _buildIconWithShadow(
-              icon: Icons.groups,
-              isSelected: _currentTabIndex == 2,
-            ),
-            label: "Communities",
-          ),
-          BottomNavigationBarItem(
-            icon: _buildIconWithShadow(
-              icon: Icons.call,
-              isSelected: _currentTabIndex == 3,
-            ),
-            label: "Calls",
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildIconWithShadow({required IconData icon, required bool isSelected}) {
-    return Container(
-      decoration: isSelected
-          ? BoxDecoration(
-        color: tabColor.withOpacity(0.2),
-        shape: BoxShape.circle,
-      )
-          : null,
-      padding: const EdgeInsets.all(8.0),
-      child: Icon(icon),
     );
   }
 }
