@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ],
         bottom:  TabBar(
           controller: _tabController,
-          labelColor: textColor,
-          unselectedLabelColor: textColor.withOpacity(0.6),
+          labelColor: tabColor,
+          unselectedLabelColor: textColor,
           indicatorColor: tabColor,
           tabs: const [
             Tab(
@@ -90,7 +90,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ],
         ),
       ),
-
+      floatingActionButton: switchFloatingActionButtonOnTabIndex(
+        _currentTabIndex,
+      ),
     );
+  }
+  switchFloatingActionButtonOnTabIndex(int index){
+     switch(index){
+       case 0:
+         {
+
+         }
+     }
   }
 }
