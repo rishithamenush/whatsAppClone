@@ -63,6 +63,34 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ],
           ),
         ],
+        bottom: const TabBar(
+          tabs: [
+            Tab(
+              child: Text(
+                "Chats",
+                style: TextStyle(
+                  fontSize: 16,fontWeight: FontWeight.w600
+                ),
+              ),
+            ),
+            Tab(
+              child: Text(
+                "Status",
+                style: TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.w600
+                ),
+              ),
+            ),
+            Tab(
+              child: Text(
+                "Calls",
+                style: TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.w600
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
 
     );
