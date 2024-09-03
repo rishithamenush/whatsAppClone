@@ -13,12 +13,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   TabController? _tabController;
    int _currentTabIndex = 0;
 
-   final List<Widget> _page = [
-     const Center(child: Text("Chats"),),
-     const Center(child: Text("Updates"),),
-     const Center(child: Text("Communities"),),
-     const Center(child: Text("Calls"),),
-   ];
 
    @override
   void initState() {
@@ -63,8 +57,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ],
           ),
         ],
-        bottom: const TabBar(
-          tabs: [
+        bottom:  TabBar(
+          controller: _tabController,
+          labelColor: textColor,
+          unselectedLabelColor: textColor.withOpacity(0.6),
+          indicatorColor: tabColor,
+          tabs: const [
             Tab(
               child: Text(
                 "Chats",
