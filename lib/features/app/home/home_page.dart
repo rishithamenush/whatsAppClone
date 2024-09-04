@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/features/app/home/contacts_page.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:whatsapp_clone/features/status/presentation/pages/status_page.dart';
 
@@ -120,7 +121,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
          {
            return FloatingActionButton(
              backgroundColor: tabColor,
-             onPressed: (){},
+             onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder: (context)=> ContactsPage()));
+             },
              child: const Icon(
                Icons.message,
                color: Colors.white,
