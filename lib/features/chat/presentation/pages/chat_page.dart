@@ -15,24 +15,27 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(itemBuilder: (context, index){
-        return ListTile(
-          leading: SizedBox(
-            width: 50,
-            height: 50,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: profileWidget(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: ListView.builder(itemCount: 10, itemBuilder: (context, index){
+          return ListTile(
+            leading: SizedBox(
+              width: 50,
+              height: 50,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: profileWidget(),
+              ),
             ),
-          ),
-          title: const Text("UserName"),
-          subtitle: const Text("Last message hi", maxLines: 1, overflow: TextOverflow.clip,),
-          trailing: Text(
-            DateFormat.jm().format(DateTime.now()),
-            style: const TextStyle(color: greyColor, fontSize: 13),
-          ),
-        );
-      }),
+            title: const Text("UserName"),
+            subtitle: const Text("Last message hi", maxLines: 1, overflow: TextOverflow.clip,),
+            trailing: Text(
+              DateFormat.jm().format(DateTime.now()),
+              style: const TextStyle(color: greyColor, fontSize: 13),
+            ),
+          );
+        }),
+      ),
     );
   }
 }
