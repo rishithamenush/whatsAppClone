@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:whatsapp_clone/features/app/global/date/date_formats.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
+import 'package:whatsapp_clone/features/user/presentation/widgets/profile_widget.dart';
 
 class CallHistoryPage extends StatefulWidget {
   const CallHistoryPage({super.key});
@@ -12,14 +15,14 @@ class CallHistoryPage extends StatefulWidget {
 class _CallHistoryPageState extends State<CallHistoryPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               child: Text("Recent",
               style: TextStyle(
@@ -28,8 +31,45 @@ class _CallHistoryPageState extends State<CallHistoryPage> {
                 fontWeight: FontWeight.w600
               ),),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
+            ),
+
+            ListView.builder(
+              itemCount: 20,
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+              itemBuilder: (context, index){
+                return ListTile(
+                  leading: Container(
+                    width: 55,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: profileWidget(),
+                    ),
+                  ),
+                  title: const Text(
+                    "Username", style: TextStyle(fontSize: 16),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      const Icon(
+                        Icons.call_made,
+                        color: Colors.green,
+                        size: 19,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(formatDateTime(DateTime.now()))
+                    ],
+                  ),
+                );
+              },
             )
           ],
         ),
