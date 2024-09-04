@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
+import 'package:whatsapp_clone/features/status/presentation/pages/status_page.dart';
+
+import '../../call/presentation/pages/call_history_page.dart';
+import '../../chat/presentation/pages/chat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -103,9 +107,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         controller: _tabController,
 
         children: const [
-          Center(child: Text("Chat Page"),),
-          Center(child: Text("Status Page"),),
-          Center(child: Text("Calls Page"),),
+          ChatPage(),
+          StatusPage(),
+          CallHistoryPage(),
         ],
       ),
     );
