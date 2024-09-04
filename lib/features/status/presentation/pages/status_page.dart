@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/features/app/global/date/date_formats.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:whatsapp_clone/features/user/presentation/widgets/profile_widget.dart';
 
@@ -109,6 +110,13 @@ class _StatusPageState extends State<StatusPage> {
                       borderRadius: BorderRadius.circular(30),
                       child: profileWidget(),
                     ),
+                  ),
+                  title: const Text(
+                    "Username",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  subtitle: Text(
+                    formatDateTime(DateTime.now())
                   ),
                 );
                 }
