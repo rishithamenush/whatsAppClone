@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,6 +20,7 @@ class _CallHistoryPageState extends State<CallHistoryPage> {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
               height: 15,
@@ -67,6 +70,10 @@ class _CallHistoryPageState extends State<CallHistoryPage> {
                       ),
                       Text(formatDateTime(DateTime.now()))
                     ],
+                  ),
+                  trailing: const Icon(
+                    Icons.call,
+                    color: tabColor,
                   ),
                 );
               },
