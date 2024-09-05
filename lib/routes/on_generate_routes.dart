@@ -6,6 +6,7 @@ import 'package:whatsapp_clone/features/app/home/contacts_page.dart';
 
 import '../features/app/const/page_const.dart';
 import '../features/app/settings/settings_page.dart';
+import '../features/call/presentation/pages/call_contacts_page.dart';
 import '../features/status/presentation/pages/my_status_page.dart';
 
 class OnGenerateRoutes{
@@ -21,9 +22,9 @@ class OnGenerateRoutes{
       case PageConst.settingsPage:{
         return materialPageBuilder(const SettingsPage());
       }
-      // case PageConst.callContactsPage:{
-      //   return materialPageBuilder(CallContactsPage(currentUser:args));
-      // }
+      case PageConst.callContactsPage:{
+        return materialPageBuilder(const CallContactsPage());
+      }
       case PageConst.myStatusPage:{
         return materialPageBuilder(const MyStatusPage());
       }
