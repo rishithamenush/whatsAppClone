@@ -1,5 +1,6 @@
 
- import 'package:flutter/cupertino.dart';
+ import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/app/home/contacts_page.dart';
 
@@ -15,6 +16,18 @@ class OnGenerateRoutes{
         {
           return materialPageBuilder (const ContactsPage());
         }
+      // case PageConst.settingsPage:{
+      //   return materialPageBuilder(SettingsPage());
+      // }
+      // case PageConst.callContactsPage:{
+      //   return materialPageBuilder(CallContactsPage(currentUser:args));
+      // }
+      // case PageConst.myStatusPage:{
+      //   return materialPageBuilder(MyStatusPage(status: args));
+      // }
+      // case PageConst.singleChatPage:{
+      //   return materialPageBuilder(SingleChatPage(appEntity: args));
+      // }
     }
   }
   static dynamic materialPageBuilder(Widget child){
