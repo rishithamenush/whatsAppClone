@@ -50,22 +50,41 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             fontWeight: FontWeight.w600
           ),
         ),
-        actions: const [
+        actions:  [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.camera_alt_outlined,
                 color: textColor,
                 size: 20,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 25,
               ),
-              Icon(Icons.search, color: textColor,size: 28,),
-              SizedBox(
+              const Icon(Icons.search, color: textColor,size: 28,),
+              const SizedBox(
                 width: 10,
               ),
-              Icon(Icons.more_vert, color: textColor,size: 28,)
+              PopupMenuButton<String>(
+                icon:  const Icon(
+                  Icons.more_vert,
+                  color: greyColor,
+                  size: 28,
+                ),
+                color: appBarColor,
+                iconSize: 28,
+                onSelected: (value){},
+                itemBuilder: (context) => <PopupMenuEntry<String>>[
+                  PopupMenuItem<String>(
+                      value: "Settings",
+                      child: GestureDetector(
+                        onTap: (){},
+                        child: const Text("Settings"),
+                      ),
+                  )
+                ]
+
+              ),
             ],
           ),
         ],
