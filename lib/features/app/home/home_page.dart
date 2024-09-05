@@ -6,6 +6,7 @@ import 'package:whatsapp_clone/features/status/presentation/pages/status_page.da
 
 import '../../call/presentation/pages/call_history_page.dart';
 import '../../chat/presentation/pages/chat_page.dart';
+import '../const/page_const.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -122,7 +123,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
            return FloatingActionButton(
              backgroundColor: tabColor,
              onPressed: (){
-               Navigator.push(context, MaterialPageRoute(builder: (context)=> ContactsPage()));
+               // Navigator.push(context, MaterialPageRoute(builder: (context)=> ContactsPage()));
+               Navigator.pushNamed(context, PageConst.contactUserPage);
              },
              child: const Icon(
                Icons.message,
