@@ -4,6 +4,8 @@ import 'package:whatsapp_clone/features/app/global/date/date_formats.dart';
 import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:whatsapp_clone/features/user/presentation/widgets/profile_widget.dart';
 
+import '../../../app/const/page_const.dart';
+
 class StatusPage extends StatefulWidget {
   const StatusPage({super.key});
 
@@ -76,9 +78,14 @@ class _StatusPageState extends State<StatusPage> {
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.more_horiz,
-                  color: greyColor.withOpacity(0.5),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, PageConst.myStatusPage);
+                  },
+                  child: Icon(
+                    Icons.more_horiz,
+                    color: greyColor.withOpacity(0.5),
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
