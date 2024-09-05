@@ -78,7 +78,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   PopupMenuItem<String>(
                       value: "Settings",
                       child: GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.pushNamed(
+                              context, PageConst.settingsPage);
+                        },
                         child: const Text("Settings"),
                       ),
                   )
