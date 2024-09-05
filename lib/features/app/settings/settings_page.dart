@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:whatsapp_clone/features/user/presentation/widgets/profile_widget.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -18,21 +19,54 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: Column(
         children: [
-          Row(
-            children: [
-              SizedBox(
-                width: 65,
-                height: 65,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(32.5),
-                  child:
-                  profileWidget(),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 65,
+                  height: 65,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(32.5),
+                    child:
+                    profileWidget(),
+                  ),
                 ),
-              ),
 
-              const
-            ],
-          )
+                const Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Username",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          Text(
+                            "While true {code()}",
+                            style: TextStyle(color: greyColor),
+                          )
+                        ],
+                      ),
+                    ),
+                ),
+                const Icon(
+                  Icons.qr_code_sharp,
+                  color: tabColor,
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Container(
+            width: double.infinity,
+            height: 0.5,
+            color: greyColor.withOpacity(0.4),
+          ),
+          const SizedBox(height: 10,)
         ],
       ),
     );
