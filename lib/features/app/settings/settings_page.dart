@@ -66,7 +66,32 @@ class _SettingsPageState extends State<SettingsPage> {
             height: 0.5,
             color: greyColor.withOpacity(0.4),
           ),
-          const SizedBox(height: 10,)
+          const SizedBox(height: 10,),
+          _settingsItemWidget(
+            title: "Account",
+            description: "Security applications, change number",
+            icon: Icons.key,
+            onTap: (){}
+          ),
+          _settingsItemWidget(
+              title: "Privacy",
+              description: "Block Contacts, disappearing messages",
+              icon: Icons.lock,
+              onTap: (){}
+          ),
+          _settingsItemWidget(
+              title: "Chats",
+              description: "Theme, wallpapers, chat history",
+              icon: Icons.message,
+              onTap: (){}
+          ),
+          _settingsItemWidget(
+              title: "Logout",
+              description: "Logout from Whatsapp Clone",
+              icon: Icons.exit_to_app,
+              onTap: (){}
+          ),
+
         ],
       ),
     );
