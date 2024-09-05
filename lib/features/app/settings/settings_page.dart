@@ -71,4 +71,24 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+  _settingsItemWidget({String? title, String? description, IconData? icon, VoidCallback? onTap}){
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        children: [
+          SizedBox(width: 80, height: 80, child: Icon(icon, color: greyColor, size: 25,),),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("$title", style: const TextStyle(fontSize: 17),),
+                const SizedBox(height: 3,),
+                Text("$description", style: const TextStyle(color: greyColor),)
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
