@@ -20,7 +20,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Column(
-
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Username'
@@ -75,13 +75,52 @@ class _SingleChatPageState extends State<SingleChatPage> {
                       createAt: Timestamp.now(),
                       isSeen: false,
                       isShowTick: true,
-                      messageBgColor: tabColor,
+                      messageBgColor: messageColor,
                       onLongPress: (){},
                       onSwipe: (details) {
                         // Handle swipe action here
                         print('Message swiped');
                       },
-                    )
+                    ),
+                    _messageLayout(
+                      message: "How are you?",
+                      alignment: Alignment.centerRight,
+                      createAt: Timestamp.now(),
+                      isSeen: false,
+                      isShowTick: true,
+                      messageBgColor: messageColor,
+                      onLongPress: (){},
+                      onSwipe: (details) {
+                        // Handle swipe action here
+                        print('Message swiped');
+                      },
+                    ),
+                    _messageLayout(
+                      message: "Hi",
+                      alignment: Alignment.centerLeft,
+                      createAt: Timestamp.now(),
+                      isSeen: false,
+                      isShowTick: false,
+                      messageBgColor: senderMessageColor,
+                      onLongPress: (){},
+                      onSwipe: (details) {
+                        // Handle swipe action here
+                        print('Message swiped');
+                      },
+                    ),
+                    _messageLayout(
+                      message: "Doing good, how about you?",
+                      alignment: Alignment.centerLeft,
+                      createAt: Timestamp.now(),
+                      isSeen: false,
+                      isShowTick: true,
+                      messageBgColor: senderMessageColor,
+                      onLongPress: (){},
+                      onSwipe: (details) {
+                        // Handle swipe action here
+                        print('Message swiped');
+                      },
+                    ),
                   ],
                 ),
               )
