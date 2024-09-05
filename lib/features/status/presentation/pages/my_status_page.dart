@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/features/app/theme/style.dart';
 import 'package:whatsapp_clone/features/user/presentation/widgets/profile_widget.dart';
 import 'package:timeago/timeago.dart' as time_ago;
 
@@ -41,6 +42,20 @@ class _MyStatusPageState extends State<MyStatusPage> {
                     time_ago.format(DateTime.now().subtract(Duration(seconds: DateTime.now().second))),
                     style:  const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
                   ),
+                ),
+                PopupMenuButton<String>(
+                  icon: Icon(Icons.more_vert,color: greyColor.withOpacity(0.5),),
+                  color: appBarColor,
+                  iconSize: 28,
+                  onSelected: (value){},
+                  itemBuilder: (context) => <PopupMenuEntry<String>>[
+                    PopupMenuItem<String>(
+                      value: "Delete",
+                      child: GestureDetector(onTap: (){},
+                          child: const Text("Delete")
+                      ),
+                    ),
+                  ]
                 )
               ],
             )
