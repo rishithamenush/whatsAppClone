@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/app/home/contacts_page.dart';
 
 import '../features/app/const/page_const.dart';
+import '../features/app/settings/settings_page.dart';
 
 class OnGenerateRoutes{
   static Route<dynamic>? route(RouteSettings settings){
@@ -16,9 +17,9 @@ class OnGenerateRoutes{
         {
           return materialPageBuilder (const ContactsPage());
         }
-      // case PageConst.settingsPage:{
-      //   return materialPageBuilder(SettingsPage());
-      // }
+      case PageConst.settingsPage:{
+        return materialPageBuilder(const SettingsPage());
+      }
       // case PageConst.callContactsPage:{
       //   return materialPageBuilder(CallContactsPage(currentUser:args));
       // }
