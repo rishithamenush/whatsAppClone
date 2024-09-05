@@ -75,6 +75,13 @@ class _StatusPageState extends State<StatusPage> {
                       )
                     ],
                   ),
+                ),
+                Icon(
+                  Icons.more_horiz,
+                  color: greyColor.withOpacity(0.5),
+                ),
+                const SizedBox(
+                  width: 10,
                 )
               ],
             ),

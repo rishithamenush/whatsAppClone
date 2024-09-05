@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MyStatusPage extends StatefulWidget {
   const MyStatusPage({super.key});
@@ -10,6 +11,10 @@ class MyStatusPage extends StatefulWidget {
 class _MyStatusPageState extends State<MyStatusPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("My Status"),
+      ),
+    );
   }
 }
