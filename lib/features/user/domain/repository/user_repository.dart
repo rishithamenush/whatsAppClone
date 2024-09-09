@@ -1,6 +1,8 @@
 
 import 'package:whatsapp_clone/features/user/domain/entities/user_entity.dart';
 
+import '../entities/contact_entity.dart';
+
 abstract class UserRepository{
   Future<void> verifyPhoneNumber(String phoneNumber);
   Future<void> signInWithPhoneNumber(String smsPinCode);
