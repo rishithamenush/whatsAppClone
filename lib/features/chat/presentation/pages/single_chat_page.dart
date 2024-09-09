@@ -23,6 +23,8 @@ class _SingleChatPageState extends State<SingleChatPage> {
     _textMessageController.dispose();
     super.dispose();
   }
+
+  bool _isShowAttachWindow = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,6 +214,24 @@ class _SingleChatPageState extends State<SingleChatPage> {
                       ),
                     )
                   ],
+                ),
+              ),
+              Positioned(
+                bottom: 65,
+                top: 340,
+                left: 15,
+                right: 15,
+                child: Container(
+                  width: double.infinity,
+                  height: 
+                  MediaQuery.of(context).size.width * 0.20,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5, vertical: 20
+                  ),
+                  decoration: BoxDecoration(
+                    color:  bottomAttachContainerColor,
+                    borderRadius: BorderRadius.circular(10)
+                  ),
                 ),
               )
             ],
