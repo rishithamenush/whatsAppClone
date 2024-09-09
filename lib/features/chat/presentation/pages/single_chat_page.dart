@@ -192,6 +192,9 @@ class _SingleChatPageState extends State<SingleChatPage> {
                       ),
                     ),
 
+                    const SizedBox(
+                      width: 10.0,
+                    ),
                     Container(
                       width: 50,
                       height: 50,
