@@ -190,6 +190,23 @@ class _SingleChatPageState extends State<SingleChatPage> {
                           ),
                         ),
                       ),
+                    ),
+
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: tabColor
+                      ),
+                      child: Center(
+                        child: Icon(
+                          _isDisplaySendButton
+                          ? Icons.send_outlined
+                          : Icons.mic,
+                        color: Colors.white,
+                        ),
+                      ),
                     )
                   ],
                 ),
