@@ -216,25 +216,98 @@ class _SingleChatPageState extends State<SingleChatPage> {
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 65,
-                top: 340,
-                left: 15,
-                right: 15,
-                child: Container(
-                  width: double.infinity,
-                  height: 
-                  MediaQuery.of(context).size.width * 0.20,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 5, vertical: 20
-                  ),
-                  decoration: BoxDecoration(
-                    color:  bottomAttachContainerColor,
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                ),
-              )
             ],
+          ),
+          Positioned(
+            bottom: 65,
+            top: 340,
+            left: 15,
+            right: 15,
+            child: Container(
+              width: double.infinity,
+              height:
+              MediaQuery.of(context).size.width * 0.20,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 5, vertical: 20
+              ),
+              decoration: BoxDecoration(
+                  color:  bottomAttachContainerColor,
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _attachWindowItem(
+                        Icons.document_scanner,
+                        Colors.deepPurpleAccent,
+                        "Document",
+                        () {},
+                      ),
+                      _attachWindowItem(
+                        Icons.camera_alt,
+                        Colors.pinkAccent,
+                        "Camera",
+                        () {},
+                      ),
+                      _attachWindowItem(
+                        Icons.image,
+                        Colors.purpleAccent,
+                        "Gallery",
+                        () {},
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _attachWindowItem(
+                        Icons.headphones,
+                        Colors.deepOrange,
+                        "Audio",
+                        () {},
+                      ),
+                      _attachWindowItem(
+                        Icons.location_on,
+                        Colors.green,
+                        "Location",
+                        () {},
+                      ),
+                      _attachWindowItem(
+                        Icons.account_circle,
+                        Colors.deepPurpleAccent,
+                        "Contact",
+                        () {},
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _attachWindowItem(
+                        Icons.bar_chart,
+                        tabColor,
+                         "Poll",
+                         () {},
+                      ),
+                      _attachWindowItem(
+                         Icons.gif_box_outlined,
+                         Colors.indigoAccent,
+                         "Gif",
+                          () {},
+                      ),
+                      _attachWindowItem(
+                         Icons.videocam_rounded,
+                         Colors.lightGreen,
+                         "Video",
+                         () {},
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           )
         ],
       ),
@@ -308,4 +381,29 @@ class _SingleChatPageState extends State<SingleChatPage> {
       ),
     );
 }
+  _attachWindowItem(IconData icon, Color color, String title, VoidCallback onTap){
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40), color: color
+            ),
+            child: Icon(icon),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            "$title",
+            style: const TextStyle(color: greyColor, fontSize: 13),
+          )
+        ],
+      ),
+    );
+  }
 }
