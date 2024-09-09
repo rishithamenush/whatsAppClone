@@ -158,6 +158,31 @@ class _SingleChatPageState extends State<SingleChatPage> {
                               });
                             }
                           },
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 15),
+                            prefixIcon: Icon(Icons.emoji_emotions, color: greyColor),
+                            suffixIcon: Padding(
+                              padding: EdgeInsets.only(top: 12.0),
+                              child: Wrap(
+                                children: [
+                                  Icon(
+                                    Icons.attach_file,
+                                    color:  greyColor,
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.camera_alt,
+                                    color: greyColor,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  )
+                                ],
+                              ),
+                            )
+                          ),
                         ),
                       ),
                     )
