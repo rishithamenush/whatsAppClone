@@ -15,6 +15,14 @@ class SingleChatPage extends StatefulWidget {
 }
 
 class _SingleChatPageState extends State<SingleChatPage> {
+
+  final TextEditingController _textMessageController = TextEditingController();
+  bool _isDisplaySendButton = false;
+  @override
+  void dispose(){
+    _textMessageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +129,38 @@ class _SingleChatPageState extends State<SingleChatPage> {
                         print('Message swiped');
                       },
                     ),
+                  ],
+                ),
+              ),
+
+              Container(
+                margin: const EdgeInsets.only(right: 10, left: 10, top: 5, bottom: 5),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          color: appBarColor,
+                          borderRadius:BorderRadius.circular(25),
+                        ),
+                        height: 50,
+                        child: TextField(
+                          controller: _textMessageController,
+                          onChanged: (value){
+                            if (value.isNotEmpty){
+                              setState(() {
+                                _isDisplaySendButton = true;
+                              });
+                            }else{
+                              setState(() {
+                                _isDisplaySendButton = false;
+                              });
+                            }
+                          },
+                        ),
+                      ),
+                    )
                   ],
                 ),
               )
