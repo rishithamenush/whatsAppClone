@@ -158,30 +158,35 @@ class _SingleChatPageState extends State<SingleChatPage> {
                               });
                             }
                           },
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 15),
-                            prefixIcon: Icon(Icons.emoji_emotions, color: greyColor),
+                          decoration:  InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                            prefixIcon: const Icon(Icons.emoji_emotions, color: greyColor),
                             suffixIcon: Padding(
                               padding: EdgeInsets.only(top: 12.0),
                               child: Wrap(
                                 children: [
-                                  Icon(
-                                    Icons.attach_file,
-                                    color:  greyColor,
+                                  Transform.rotate(
+                                    angle: -0.5,
+                                    child: const Icon(
+                                      Icons.attach_file,
+                                      color:  greyColor,
+                                    ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.camera_alt,
                                     color: greyColor,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   )
                                 ],
                               ),
-                            )
+                            ),
+                            hintText: "Message",
+                            border: InputBorder.none
                           ),
                         ),
                       ),
