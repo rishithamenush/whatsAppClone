@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
@@ -26,4 +28,17 @@ class UserModel extends UserEntity {
       isOnline: isOnline,
       status: status
   );
+
+  factory UserModel.fromSnapshot(DocumentSnapshot snapshot){
+    final snap = snapshot.data() as Map<String, dynamic>;
+    return UserModel(
+      status:  snap['status'],
+      profileUrl: snap['profileUrl'],
+      phoneNumber: snap['phoneNumber'],
+      isOnline: snap['isOnline'],
+      email: snap['email'],
+      username: snap['username'],
+      uid: snap['uid']
+    );
+  }
 }
