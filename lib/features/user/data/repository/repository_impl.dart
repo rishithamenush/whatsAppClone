@@ -9,63 +9,33 @@ class UserReositoryImpl implements UserRepository{
   UserReositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<void> createUser(UserEntity user) {
-    // TODO: implement createUser
-    throw UnimplementedError();
-  }
+  Future<void> createUser(UserEntity user) async => remoteDataSource.createUser(user);
 
   @override
-  Stream<List<UserEntity>> getAllUsers() {
-    // TODO: implement getAllUsers
-    throw UnimplementedError();
-  }
+  Stream<List<UserEntity>> getAllUsers()  => remoteDataSource.getAllUsers();
 
   @override
-  Future<String> getCurrentUID() {
-    // TODO: implement getCurrentUID
-    throw UnimplementedError();
-  }
+  Future<String> getCurrentUID() async => remoteDataSource.getCurrentUID();
 
   @override
-  Future<List<ContactEntity>> getDeviceNumber() {
-    // TODO: implement getDeviceNumber
-    throw UnimplementedError();
-  }
+  Future<List<ContactEntity>> getDeviceNumber() async => remoteDataSource.getDeviceNumber();
 
   @override
-  Stream<List<UserEntity>> getSingleUser(String uid) {
-    // TODO: implement getSingleUser
-    throw UnimplementedError();
-  }
+  Stream<List<UserEntity>> getSingleUser(String uid)  => remoteDataSource.getSingleUser(uid);
 
   @override
-  Future<bool> isSignIn() {
-    // TODO: implement isSignIn
-    throw UnimplementedError();
-  }
+  Future<bool> isSignIn() async => remoteDataSource.isSignIn();
 
   @override
-  Future<void> signInWithPhoneNumber(String smsPinCode) {
-    // TODO: implement signInWithPhoneNumber
-    throw UnimplementedError();
-  }
+  Future<void> signInWithPhoneNumber(String smsPinCode) async => remoteDataSource.signInWithPhoneNumber(smsPinCode);
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
-  }
+  Future<void> signOut() async => remoteDataSource.signOut();
 
   @override
-  Future<void> updateUser(UserEntity user) {
-    // TODO: implement updateUser
-    throw UnimplementedError();
-  }
+  Future<void> updateUser(UserEntity user) async => remoteDataSource.updateUser(user);
 
   @override
-  Future<void> verifyPhoneNumber(String phoneNumber) {
-    // TODO: implement verifyPhoneNumber
-    throw UnimplementedError();
-  }
+  Future<void> verifyPhoneNumber(String phoneNumber) async => remoteDataSource.verifyPhoneNumber(phoneNumber);
   
 }
