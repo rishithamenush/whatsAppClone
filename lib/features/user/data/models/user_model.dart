@@ -22,8 +22,8 @@ class UserModel extends UserEntity {
       email: email,
       uid: uid,
       profileUrl: profileUrl,
-    phoneNumber: phoneNumber,
-    isOnline: isOnline,
-    status: status
+      phoneNumber: phoneNumber,
+      isOnline: isOnline,
+      status: status
   );
 }
