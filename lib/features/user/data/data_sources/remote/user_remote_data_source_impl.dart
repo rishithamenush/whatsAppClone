@@ -48,17 +48,27 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
 
   @override
   Stream<List<UserEntity>> getAllUsers() {
-    // TODO: implement getAllUsers
-    throw UnimplementedError();
+    final userCollection =
+    fireStore.collection(FirebaseCollectionConst.users);
+
+    return userCollection.snapshots().map((querySnapshot) => querySnapshot.docs.map(e) => UserModel.fromSnapshot(e).toList());
   }
 
   @override
   Future<String> getCurrentUID() async => auth.currentUser!.uid;
 
   @override
-  Future<List<ContactEntity>> getDeviceNumber() {
-    // TODO: implement getDeviceNumber
-    throw UnimplementedError();
+  Future<List<ContactEntity>> getDeviceNumber() async {
+    List<ContactEntity> contacts = [];
+    final getContactsData = await ContactsService.getContacts();
+    getContactsData.forEach((myContact){
+      myContact.phones!.forEach((phoneData){
+        contacts.add(ContactEntity(
+            phoneNumber: phoneData.value,
+            label: myContact.displayName,
+            userProfile: myContact.avatar));
+      });
+    });
   }
 
   @override
