@@ -1,8 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:whatsapp_clone/features/user/data/data_sources/remote/user_remote_data_source.dart';
 import 'package:whatsapp_clone/features/user/domain/entities/contact_entity.dart';
 import 'package:whatsapp_clone/features/user/domain/entities/user_entity.dart';
 
 class UserRemoteDataSourceImpl implements UserRemoteDataSource{
+
+  final FirebaseFirestore fireStore;
+  final FirebaseAuth auth;
+
+  UserRemoteDataSourceImpl ({required this.fireStore, required this.auth});
+
+
+
   @override
   Future<void> createUser(UserEntity user) {
     // TODO: implement createUser
