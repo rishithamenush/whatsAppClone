@@ -65,6 +65,7 @@ dependencies:
   country_pickers: ^3.0.1
   swipe_to: ^1.0.6
   firebase_auth: ^5.2.0
+  contacts_service: ^0.6.3
 
 dev_dependencies:
   flutter_test:
