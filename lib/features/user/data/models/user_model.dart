@@ -41,4 +41,13 @@ class UserModel extends UserEntity {
       uid: snap['uid']
     );
   }
+  Map<String, dynamic> toDocument() => {
+    "status": status,
+    "profileUrl": profileUrl,
+    "phoneNumber": phoneNumber,
+    "isOnline": isOnline,
+    "email": email,
+    "username": username,
+    "uid": uid
+  };
 }
