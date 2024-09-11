@@ -17,7 +17,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
 
 
   @override
-  Future<void> createUser(UserEntity user) {
+  Future<void> createUser(UserEntity user) async{
     final userCollection =
     fireStore.collection(FirebaseCollectionConst.users);
 
@@ -53,10 +53,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   }
 
   @override
-  Future<String> getCurrentUID() {
-    // TODO: implement getCurrentUID
-    throw UnimplementedError();
-  }
+  Future<String> getCurrentUID() async => auth.currentUser!.uid;
 
   @override
   Future<List<ContactEntity>> getDeviceNumber() {
