@@ -121,6 +121,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
         smsCode: smsPinCode,
         verificationId: _verificationId
       );
+
+      await auth.signInWithCredential(credential);
+
+
     }on FirebaseAuthException catch(e){
       if(e.code == 'invalid-verification-code'){
         toast("Invalid Verification Code");
