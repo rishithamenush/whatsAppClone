@@ -15,7 +15,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   final FirebaseAuth auth;
 
   UserRemoteDataSourceImpl ({required this.fireStore, required this.auth});
-
+  String _verificationId = "";
 
 
   @override
@@ -126,19 +126,47 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
     final userCollection =
         fireStore.collection(FirebaseCollectionConst.users);
 
-        Map<String, dynamic> userInfo = {};
+        Map<String, dynamic> userInfo = {
+
+        };
 
         if(user.username != "" && user.username != null) userInfo['username'] = user.username;
 
         if(user.profileUrl != "" && user.profileUrl != null) userInfo['profileUrl'] = user.profileUrl;
 
         if(user.isOnline != null) userInfo['isOnline'] = user.isOnline;
+
+        userCollection.doc(user.uid).update(userInfo);
   }
 
   @override
-  Future<void> verifyPhoneNumber(String phoneNumber) {
-    // TODO: implement verifyPhoneNumber
-    throw UnimplementedError();
-  }
+  Future<void> verifyPhoneNumber(String phoneNumber) async {
+    phoneVerificationCompleted(AuthCredential authCredential){
+      print("phone verified: Token ${authCredential.token} ${authCredential.signInMethod}");
+    }
 
+    phoneVerificationFailed(FirebaseAuthException firebaseAuthException){
+      print(
+        "phone failed: ${firebaseAuthException.message}, ${firebaseAuthException.code}"
+      );
+    }
+
+    phoneCodeAutoRetrievalTImeout(String verificationId){
+      this._verificationID = verificationId;
+      print("time out: $verificationId");
+    }
+
+    phoneCodeSent(String verificationId, int? forceResendingToken){
+      this._verificationId = verificationId;
+    }
+
+    await auth.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: phoneVerificationCompleted,
+        verificationFailed: phoneVerificationFailed,
+        timeout: const Duration(seconds: 60),
+        codeSent: phoneCodeSent,
+        codeAutoRetrievalTimeout: phoneCodeAutoRetrievalTImeout
+    );
+  }
 }
