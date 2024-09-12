@@ -117,7 +117,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   @override
   Future<void> signInWithPhoneNumber(String smsPinCode) async {
     try{
-
+      final AuthCredential credential = PhoneAuthProvider.credential(
+        smsCode: smsPinCode,
+        verificationId: _verificationId
+      );
     }on FirebaseAuthException catch(e){
       if(e.code == 'invalid-verification-code'){
         toast("Invalid Verification Code");
