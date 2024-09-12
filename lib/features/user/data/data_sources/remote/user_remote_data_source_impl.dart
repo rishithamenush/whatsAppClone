@@ -104,15 +104,13 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
 
   @override
   Stream<List<UserEntity>> getSingleUser(String uid) {
-    // TODO: implement getSingleUser
-    throw UnimplementedError();
+    final userCollection =
+    fireStore.collection(FirebaseCollectionConst.users).where("uid", isEqualTo: uid);
+    return userCollection.snapshots().map((querySnapshot) => querySnapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList());
   }
 
   @override
-  Future<bool> isSignIn() {
-    // TODO: implement isSignIn
-    throw UnimplementedError();
-  }
+  Future<bool> isSignIn() async => auth.currentUser?.uid != null;
 
   @override
   Future<void> signInWithPhoneNumber(String smsPinCode) {
@@ -121,15 +119,11 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   }
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
-  }
+  Future<void> signOut() async => auth.signOut();
 
   @override
-  Future<void> updateUser(UserEntity user) {
-    // TODO: implement updateUser
-    throw UnimplementedError();
+  Future<void> updateUser(UserEntity user) async {
+
   }
 
   @override
