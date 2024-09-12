@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:whatsapp_clone/features/app/const/firebase_collection_const.dart';
 import 'package:whatsapp_clone/features/user/data/data_sources/remote/user_remote_data_source.dart';
@@ -142,22 +143,28 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   @override
   Future<void> verifyPhoneNumber(String phoneNumber) async {
     phoneVerificationCompleted(AuthCredential authCredential){
-      print("phone verified: Token ${authCredential.token} ${authCredential.signInMethod}");
+      if (kDebugMode) {
+        print("phone verified: Token ${authCredential.token} ${authCredential.signInMethod}");
+      }
     }
 
     phoneVerificationFailed(FirebaseAuthException firebaseAuthException){
-      print(
+      if (kDebugMode) {
+        print(
         "phone failed: ${firebaseAuthException.message}, ${firebaseAuthException.code}"
       );
+      }
     }
 
     phoneCodeAutoRetrievalTImeout(String verificationId){
-      this._verificationID = verificationId;
-      print("time out: $verificationId");
+      _verificationId = verificationId;
+      if (kDebugMode) {
+        print("time out: $verificationId");
+      }
     }
 
     phoneCodeSent(String verificationId, int? forceResendingToken){
-      this._verificationId = verificationId;
+      _verificationId = verificationId;
     }
 
     await auth.verifyPhoneNumber(
