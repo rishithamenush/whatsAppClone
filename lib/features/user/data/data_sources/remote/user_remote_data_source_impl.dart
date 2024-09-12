@@ -123,7 +123,16 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
 
   @override
   Future<void> updateUser(UserEntity user) async {
+    final userCollection =
+        fireStore.collection(FirebaseCollectionConst.users);
 
+        Map<String, dynamic> userInfo = {};
+
+        if(user.username != "" && user.username != null) userInfo['username'] = user.username;
+
+        if(user.profileUrl != "" && user.profileUrl != null) userInfo['profileUrl'] = user.profileUrl;
+
+        if(user.isOnline != null) userInfo['isOnline'] = user.isOnline;
   }
 
   @override
