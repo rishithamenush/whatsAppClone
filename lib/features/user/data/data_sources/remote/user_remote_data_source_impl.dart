@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:whatsapp_clone/features/app/const/app_const.dart';
 import 'package:whatsapp_clone/features/app/const/firebase_collection_const.dart';
 import 'package:whatsapp_clone/features/user/data/data_sources/remote/user_remote_data_source.dart';
 import 'package:whatsapp_clone/features/user/data/models/user_model.dart';
@@ -114,9 +115,18 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource{
   Future<bool> isSignIn() async => auth.currentUser?.uid != null;
 
   @override
-  Future<void> signInWithPhoneNumber(String smsPinCode) {
-    // TODO: implement signInWithPhoneNumber
-    throw UnimplementedError();
+  Future<void> signInWithPhoneNumber(String smsPinCode) async {
+    try{
+
+    }on FirebaseAuthException catch(e){
+      if(e.code == 'invalid-verification-code'){
+        toast("Invalid Verification Code");
+      }else if(e.code == 'quota-exceeded'){
+        toast("SMS quota-exceeded");
+      }
+    }catch (e){
+      toast("Unknown exception please try again");
+    }
   }
 
   @override
