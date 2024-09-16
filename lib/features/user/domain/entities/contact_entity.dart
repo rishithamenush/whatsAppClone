@@ -31,7 +31,8 @@ class ContactEntity {
   final List<Group>? groups;
 
   ContactEntity(
-      {this.id,
+      {
+        this.id,
         this.displayName,
         this.photo,
         this.thumbnail,
