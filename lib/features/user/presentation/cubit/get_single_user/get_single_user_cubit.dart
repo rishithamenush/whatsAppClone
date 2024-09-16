@@ -7,7 +7,7 @@ import '../../../domain/usecases/user/get_single_user_usecase.dart';
 part 'get_single_user_state.dart';
 
 class GetSingleUserCubit extends Cubit<GetSingleUserState> {
-  final GetSingleUserUsecase getSingleUserUsecase;
+  final GetSingleUserUseCase getSingleUserUsecase;
   GetSingleUserCubit({
     required this.getSingleUserUsecase
 }): super(GetSingleUserInitial());

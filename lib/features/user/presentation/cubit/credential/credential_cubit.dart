@@ -13,7 +13,7 @@ part 'credential_state.dart';
 class CredentialCubit extends Cubit<CredentialState> {
   final SignInWithPhoneNumberUseCase signInWithPhoneNumberUseCase;
   final VerifyPhoneNumberUsecase verifyPhoneNumberUseCase;
-  final CreateUserUsecase createUserUseCase;
+  final CreateUserUseCase createUserUseCase;
   CredentialCubit({
     required this.signInWithPhoneNumberUseCase,
     required this.verifyPhoneNumberUseCase,

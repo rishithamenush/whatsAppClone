@@ -7,7 +7,7 @@ import '../../../domain/usecases/user/get_device_number_usecase.dart';
 part 'get_device_number_state.dart';
 
 class GetDeviceNumberCubit extends Cubit<GetDeviceNumberState> {
-  GetDeviceNumberUsecase getDeviceNumberUsecase;
+  GetDeviceNumberUseCase getDeviceNumberUsecase;
 
   GetDeviceNumberCubit({required this.getDeviceNumberUsecase})
       : super(GetDeviceNumberInitial());
