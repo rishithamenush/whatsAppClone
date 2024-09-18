@@ -3,10 +3,10 @@ import 'package:whatsapp_clone/features/user/domain/entities/contact_entity.dart
 import 'package:whatsapp_clone/features/user/domain/entities/user_entity.dart';
 import 'package:whatsapp_clone/features/user/domain/repository/user_repository.dart';
 
-class UserReositoryImpl implements UserRepository{
+class UserRepositoryImpl implements UserRepository{
   final UserRemoteDataSource remoteDataSource;
 
-  UserReositoryImpl({required this.remoteDataSource});
+  UserRepositoryImpl({required this.remoteDataSource});
 
   @override
   Future<void> createUser(UserEntity user) async => remoteDataSource.createUser(user);
