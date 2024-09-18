@@ -8,6 +8,7 @@ import 'main_injection_container.dart' as di;
 import 'features/app/splash/splash_screen.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

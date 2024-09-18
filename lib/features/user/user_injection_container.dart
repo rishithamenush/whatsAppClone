@@ -66,9 +66,6 @@ Future<void> userInjectionContainer() async {
   sl.registerLazySingleton<GetAllUsersUseCase>(
           () => GetAllUsersUseCase(repository: sl.call()));
 
-  sl.registerLazySingleton<GetAllUsersUseCase>(
-          () => GetAllUsersUseCase(repository: sl.call()));
-
   sl.registerLazySingleton<UpdateUserUseCase>(
           () => UpdateUserUseCase(repository: sl.call()));
 
