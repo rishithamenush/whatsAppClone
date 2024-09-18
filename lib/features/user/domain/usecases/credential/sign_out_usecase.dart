@@ -1,9 +1,9 @@
 import 'package:whatsapp_clone/features/user/domain/repository/user_repository.dart';
 
-class SignOutUsecase{
+class SignOutUseCase{
   final UserRepository repository;
 
-  SignOutUsecase({required this.repository});
+  SignOutUseCase({required this.repository});
 
   Future<void> call() async{
     return repository.signOut();

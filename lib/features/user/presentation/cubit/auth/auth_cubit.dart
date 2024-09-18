@@ -9,22 +9,22 @@ import 'package:whatsapp_clone/features/user/domain/usecases/credential/sign_out
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  final GetCurrentUidUsecase getCurrentUidUsecase;
-  final IsSignInUsecase isSignInUsecase;
-  final SignOutUsecase signOutUsecase;
+  final GetCurrentUidUseCase getCurrentUidUseCase;
+  final IsSignInUseCase isSignInUseCase;
+  final SignOutUseCase signOutUseCase;
 
   AuthCubit({
-    required this.getCurrentUidUsecase,
-    required this.isSignInUsecase,
-    required this.signOutUsecase,
+    required this.getCurrentUidUseCase,
+    required this.isSignInUseCase,
+    required this.signOutUseCase,
 }) : super(AuthInitial());
 
   Future<void> appStarted() async{
     try{
-      bool isSignIn = await isSignInUsecase.call();
+      bool isSignIn = await isSignInUseCase.call();
 
       if(isSignIn){
-        final uid = await getCurrentUidUsecase.call();
+        final uid = await getCurrentUidUseCase.call();
         emit(Authenticated(uid: uid));
       }else{
         emit(UnAuthenticated());
@@ -35,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
   Future<void> loggedIn() async{
     try{
-      final uid = await getCurrentUidUsecase.call();
+      final uid = await getCurrentUidUseCase.call();
       emit(Authenticated(uid: uid));
     }catch(_){
       emit(UnAuthenticated());
@@ -43,7 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
   Future<void> loggedOut() async{
     try{
-      await signOutUsecase.call();
+      await signOutUseCase.call();
       emit(UnAuthenticated());
     }catch(_){
       emit(UnAuthenticated());
