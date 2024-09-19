@@ -9,7 +9,8 @@ import '../../chat/presentation/pages/chat_page.dart';
 import '../const/page_const.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String uid;
+  const HomePage({super.key, required this.uid});
 
   @override
   State<HomePage> createState() => _HomePageState();

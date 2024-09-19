@@ -10,7 +10,10 @@ import '../../../app/home/home_page.dart';
 import '../widgets/profile_widget.dart';
 
 class InitialProfileSubmitPage extends StatefulWidget {
-  const InitialProfileSubmitPage({super.key});
+
+  final String phoneNumber;
+
+  const InitialProfileSubmitPage({super.key, required this.phoneNumber});
 
   @override
   State<InitialProfileSubmitPage> createState() => _InitialProfileSubmitPageState();
@@ -99,7 +102,7 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
                 ),
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 20),

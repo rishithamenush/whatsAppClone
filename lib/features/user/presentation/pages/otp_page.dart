@@ -63,7 +63,7 @@ class _OtpPageState extends State<OtpPage> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => InitialProfileSubmitPage()));
+                // Navigator.push(context, MaterialPageRoute(builder: (context) => InitialProfileSubmitPage()));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 20),
