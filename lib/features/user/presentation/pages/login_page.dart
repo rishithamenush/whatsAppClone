@@ -152,9 +152,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpPage()));
-              },
+              onTap: _submitVerifyPhoneNumber,
               child: Container(
                 margin: const EdgeInsets.only(bottom: 20),
                 width: 120,
@@ -236,5 +234,16 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
+  }
+
+  void _submitVerifyPhoneNumber() {
+    if(_phoneController.text.isNotEmpty){
+      _phoneNumber = "+$_countryCode${_phoneController.text}";
+      print("phoneNumber $_phoneNumber");
+      BlocProvider.of<CredentialCubit> (context).submitVerifyPhoneNumber(
+          phoneNumber: _phoneNumber);
+    }else{
+      toast("Enter your phone number");
+    }
   }
 }
