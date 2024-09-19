@@ -102,7 +102,7 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
                 ),
                 GestureDetector(
                   onTap: (){
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 20),
