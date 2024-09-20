@@ -1,18 +1,19 @@
+
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:whatsapp_clone/features/user/domain/usecases/credential/sign_in_with_phone_number.dart';
-import 'package:whatsapp_clone/features/user/domain/usecases/credential/verify_phone_number_usecase.dart';
-import 'package:whatsapp_clone/features/user/domain/usecases/user/create_user_usecase.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecases/credential/sign_in_with_phone_number.dart';
+import '../../../domain/usecases/credential/verify_phone_number_usecase.dart';
+import '../../../domain/usecases/user/create_user_usecase.dart';
 
 part 'credential_state.dart';
 
 class CredentialCubit extends Cubit<CredentialState> {
   final SignInWithPhoneNumberUseCase signInWithPhoneNumberUseCase;
-  final VerifyPhoneNumberUsecase verifyPhoneNumberUseCase;
+  final VerifyPhoneNumberUseCase verifyPhoneNumberUseCase;
   final CreateUserUseCase createUserUseCase;
   CredentialCubit({
     required this.signInWithPhoneNumberUseCase,
